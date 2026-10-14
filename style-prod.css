@@ -41,7 +41,7 @@ main { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
 .s-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: clamp(28px, 5vw, 64px); align-items: start;
   padding: clamp(32px, 6vw, 72px) 0 clamp(40px, 6vw, 72px); isolation: isolate; }
 .s-hero__bg { position: absolute; z-index: -1; margin: 0; top: 0; left: calc(50% - 50vw); width: 100vw; height: min(78%, 620px); overflow: hidden; }
-.s-hero__bg img { width: 100%; height: 100%; object-fit: cover; opacity: .5; filter: saturate(.85); }
+.s-hero__bg img { width: 100%; height: 100%; object-fit: cover; opacity: .3; filter: saturate(.85); }
 .s-hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--c-canvas) 40%, transparent), var(--c-canvas) 96%); }
 /* фото бизнеса крупно в левой колонке: владелец узнаёт своё место с первого экрана */
 .s-hero__photo { margin: 30px 0 0; }
@@ -173,24 +173,6 @@ main { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
   .s-reveal.is-in { opacity: 1; transform: none; }
   .s-hero__text, .s-hero__widget { animation: s-rise .6s cubic-bezier(.2, .7, .2, 1) both; }
   .s-hero__widget { animation-delay: .1s; }
-  /* заголовки секций: wipe слева направо — текст влетает с левого края */
-  .s-section__head h2 {
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 3s cubic-bezier(.16, 1, .3, 1) .2s;
-  }
-  .s-reveal.is-in .s-section__head h2 {
-    clip-path: inset(0 0% 0 0);
-  }
-  /* подзаголовок — чуть позже, вверх */
-  .s-section__head p {
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity .45s ease .55s, transform .45s cubic-bezier(.2, .7, .2, 1) .55s;
-  }
-  .s-reveal.is-in .s-section__head p {
-    opacity: 1;
-    transform: none;
-  }
 }
 @keyframes s-rise { from { opacity: 0; transform: translateY(12px); } }
 
