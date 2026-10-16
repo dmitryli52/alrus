@@ -47,8 +47,11 @@
 .s-dialog__x{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--c-ink-soft);line-height:1;padding:4px 8px;}
 .s-dialog__form{display:grid;gap:12px;}
 .s-dialog__field{display:grid;gap:4px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c-ink-soft);}
-.s-dialog__field input{min-height:46px;border:1px solid var(--hair);border-radius:10px;padding:0 14px;font:1rem var(--f-text);background:var(--c-canvas);color:var(--c-ink);outline:none;}
-.s-dialog__field input:focus{border-color:var(--c-accent);}
+.s-dialog__field em{font-style:normal;font-weight:400;font-size:.9em;}
+.s-dialog__field input,.s-dialog__field textarea{border:1px solid var(--hair);border-radius:10px;font:1rem/1.4 var(--f-text);background:var(--c-canvas);color:var(--c-ink);outline:none;width:100%;box-sizing:border-box;}
+.s-dialog__field input{min-height:46px;padding:0 14px;}
+.s-dialog__field textarea{min-height:68px;padding:10px 14px;resize:none;}
+.s-dialog__field input:focus,.s-dialog__field textarea:focus{border-color:var(--c-accent);}
 .s-bar__cb{border-color:color-mix(in srgb,var(--c-ink) 45%,transparent);}
 .s-check+.s-check{margin-top:-12px;}
 @media(max-width:480px){.s-bar__cb{display:none;}}
@@ -70,7 +73,7 @@
 .s-pcard figcaption span{color:var(--c-accent);font-weight:700;white-space:nowrap;}
 @media(max-width:640px){.s-pgrid.is-active{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:400px){.s-pgrid.is-active{grid-template-columns:1fr;}}
-.s-final-form{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:start;}
+.s-final-form{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:stretch;}
 .s-cform{display:grid;gap:14px;}
 .s-cform__row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .s-cform__field{display:grid;gap:5px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c-ink-soft);}
@@ -78,19 +81,36 @@
 .s-cform__field input,.s-cform__field textarea{border:1px solid var(--hair);border-radius:10px;padding:10px 14px;font:1rem/1.4 var(--f-text);background:var(--c-surface);color:var(--c-ink);outline:none;resize:vertical;width:100%;box-sizing:border-box;}
 .s-cform__field input{min-height:46px;}
 .s-cform__field input:focus,.s-cform__field textarea:focus{border-color:var(--c-accent);}
-.s-cmap{display:grid;gap:14px;}
+.s-cmap{display:flex;flex-direction:column;gap:18px;}
 .s-cmap__info{display:grid;gap:4px;}
 .s-cmap__info p{margin:0;color:rgba(245,240,232,0.75);font-size:.95rem;line-height:1.5;}
 .s-cmap__info p b{color:#f5f0e8;font-weight:600;}
-.s-btn--ghost.s-cmap__btn{width:100%;justify-content:center;margin-top:4px;border:2px solid rgba(255,255,255,0.5);background:rgba(255,255,255,0.08);}
-.s-cmap__qr-wrap{display:grid;gap:6px;margin-top:4px;}
-.s-cmap__qr-wrap canvas,.s-cmap__qr-wrap img{border-radius:10px;display:block;}
-.s-cmap__qr-label{font-size:.78rem;color:rgba(245,240,232,0.45);}
-@media(max-width:768px){.s-cmap__qr-wrap{display:none;}}
-@media(min-width:769px){.s-btn.s-cmap__btn{display:none;}}
+.s-cmap__lbl{display:block;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,240,232,0.45);margin-bottom:5px;}
+.s-cmap__contacts{display:grid;gap:18px;}
+.s-cmap__tel{display:block;font:700 1.15rem/1 var(--f-display);color:var(--c-ink);text-decoration:none;}
+.s-cmap__tel:hover{color:var(--c-accent);}
+.s-cmap__contacts .s-btn--ghost{border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);}
 .s-final{background:#2F3020;border-radius:16px;padding:clamp(28px,5vw,52px);}
+.s-final--centered{display:flex;flex-direction:column;align-items:center;text-align:center;}
+.s-final__head{text-align:center;margin-bottom:0;}
 .s-final .s-section__head h2{color:#f5f0e8;}
 .s-final__note{color:rgba(245,240,232,0.65);margin-top:6px;font-size:.95rem;}
+.s-final__btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px;}
+.s-final__btns .s-btn{min-width:220px;justify-content:center;}
+.s-final__btns .s-final__btn-call,.s-final__btns .s-final__btn-wa,.s-final__btns .s-final__btn-tg{border:2px solid var(--c-accent);background:rgba(255,255,255,0.07);color:#f5f0e8;display:flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
+.s-final__btns .s-final__btn-call:hover,.s-final__btns .s-final__btn-wa:hover,.s-final__btns .s-final__btn-tg:hover{background:rgba(255,255,255,0.14);}
+.s-final__btn-call::after,.s-final__btn-wa::after,.s-final__btn-tg::after{content:'';position:absolute;top:-10%;left:0;width:44px;height:120%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.65),transparent);transform:skewX(-12deg) translateX(-300%);animation:s-btn-shine 1.8s ease-in-out infinite;pointer-events:none;}
+.s-final__ico{width:18px;height:18px;flex-shrink:0;}
+.s-final__btn-call .s-final__ico{color:#e03535;}
+.s-final__btn-wa .s-final__ico{color:#25D366;}
+.s-final__btn-tg .s-final__ico{color:#2AABEE;}
+.s-final__info{margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.s-final__tel-row{display:flex;align-items:baseline;gap:8px;margin:0;}
+.s-final__tel-lbl{font-size:.9rem;color:rgba(245,240,232,0.55);}
+.s-final__tel{font:700 1.4rem/1 var(--f-display);color:#f5f0e8;text-decoration:none;letter-spacing:-.01em;}
+.s-final__tel:hover{color:var(--c-accent);}
+.s-final__addr{font-size:.95rem;color:rgba(245,240,232,0.55);}
+@media(max-width:600px){.s-final__btns{flex-direction:column;align-items:stretch;}.s-final__btns .s-btn{min-width:0;width:100%;justify-content:center;}}
 .s-final .s-cform__field span{color:rgba(245,240,232,0.55);}
 .s-final .s-cform__field input,.s-final .s-cform__field textarea{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);color:#f5f0e8;}
 .s-final .s-cform__field input::placeholder,.s-final .s-cform__field textarea::placeholder{color:rgba(245,240,232,0.3);}
@@ -101,6 +121,7 @@
 .s-btn:not(.s-btn--ghost){position:relative;overflow:hidden;}
 .s-btn:not(.s-btn--ghost)::after{content:'';position:absolute;top:-10%;left:0;width:44px;height:120%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.52),transparent);transform:skewX(-12deg) translateX(-300%);animation:s-btn-shine 2.2s ease-in-out infinite;}
 @keyframes s-btn-shine{0%{transform:skewX(-12deg) translateX(-300%);}60%{transform:skewX(-12deg) translateX(2500%);}100%{transform:skewX(-12deg) translateX(2500%);}}
+
 </style>
 <link rel="stylesheet" href="style-prod.css">
 <style>
@@ -140,7 +161,7 @@
 @keyframes s-ticker-run { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .s-ticker__track { animation: none; } }
 /* form fields gap */
-.s-cform { gap: 30px; }
+.s-cform { gap: 18px; }
 /* demo success toast */
 .s-toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(16px);background:#2a3a22;color:#f0f0e8;border-radius:14px;padding:20px 28px;max-width:460px;width:calc(100% - 40px);box-shadow:0 8px 32px rgba(0,0,0,.45);z-index:9999;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;}
 .s-toast.is-visible{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto;}
@@ -157,7 +178,7 @@
   <a class="s-bar__brand" href="#top"><i aria-hidden="true"></i>АлРус</a>
   <div class="s-bar__right">
     <a class="s-bar__tel" href="tel:+79898252222">+7 (989) 825-22-22</a>
-    <a class="s-btn s-btn--sm s-btn--ghost" href="#contacts">Заказать звонок</a>
+    <a class="s-btn s-btn--sm s-btn--ghost" data-open-callback href="#">Заказать звонок</a>
     <a class="s-btn s-btn--sm" href="#widget">Рассчитать мебель</a>
   </div>
 </header>
@@ -193,7 +214,7 @@
       <p class="s-total"><b data-s-total>–</b></p>
       <div class="s-bubble" aria-live="polite"><span class="s-bubble__label">Ваше сообщение</span><p data-s-bubble></p></div>
       <div class="s-send">
-        <a class="s-btn s-btn--wide" id="calc-to-form" href="#contacts">Получить расчёт</a>
+        <a class="s-btn s-btn--wide" id="calc-to-form" href="#">Получить расчёт</a>
       </div>
       <p class="s-send__note" data-s-copied hidden>Текст скопирован – вставьте его в чат.</p>
       <div class="s-demo-note"><b>Это шаблонный прайс.</b> После оформления заказа мы заменим позиции и цены на ваши — из вашего прайс-листа или сайта.</div>
@@ -271,28 +292,25 @@
   </section>
 
   <section class="s-section s-reveal" id="contacts">
-    <div class="s-final">
-      <header class="s-section__head"><h2>Оставьте заявку на обратный звонок</h2><p class="s-final__note">Менеджер свяжется в течение часа, уточнит детали, поможет решить вашу задачу</p></header>
-      <div class="s-final-form">
-        <form class="s-cform" id="cf-form" onsubmit="return false">
-          <div class="s-cform__row">
-            <label class="s-cform__field"><span>Ваше имя</span><input type="text" id="cf-name" placeholder="Иван" autocomplete="name"></label>
-            <label class="s-cform__field"><span>Телефон</span><input type="tel" id="cf-phone" placeholder="+7 (999) 000-00-00" autocomplete="tel"></label>
-          </div>
-          <label class="s-cform__field"><span>Коротко о задаче <em>– необязательно</em></span><textarea id="cf-note" placeholder="Рассчитать кухню" rows="3"></textarea></label>
-          <a class="s-btn s-btn--wide" id="cf-send" href="#" style="margin-top:6px">Позвоните мне</a>
-        </form>
-        <div class="s-cmap">
-          <div class="s-cmap__info">
-            <p><b>г. Краснодар, ул. Автолюбителей, 13</b></p>
-            <p>Пн–Сб 10:00–18:00</p>
-          </div>
-          <div class="s-cmap__qr-wrap">
-            <div id="s-cmap-qr" data-url="https://yandex.ru/maps/org/alrus/179998494849/"></div>
-            <p class="s-cmap__qr-label">Открыть на телефоне</p>
-          </div>
-          <a class="s-btn s-btn--ghost s-cmap__btn" href="https://yandex.ru/maps/org/alrus/179998494849/" target="_blank" rel="noopener">Посмотреть на карте →</a>
-        </div>
+    <div class="s-final s-final--centered">
+      <header class="s-section__head s-final__head"><h2>Оставьте заявку на обратный звонок</h2><p class="s-final__note">Менеджер свяжется в течение часа, уточнит детали, поможет решить вашу задачу</p></header>
+      <div class="s-final__btns">
+        <a class="s-btn s-btn--ghost s-final__btn-call" data-open-callback href="#">
+          <svg class="s-final__ico" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Заказать звонок
+        </a>
+        <a class="s-btn s-btn--ghost s-final__btn-wa" href="https://wa.me/79898252222" target="_blank" rel="noopener">
+          <svg class="s-final__ico" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Написать в WhatsApp
+        </a>
+        <a class="s-btn s-btn--ghost s-final__btn-tg" href="https://t.me/" target="_blank" rel="noopener">
+          <svg class="s-final__ico" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Написать в Telegram
+        </a>
+      </div>
+      <div class="s-final__info">
+        <p class="s-final__tel-row"><span class="s-final__tel-lbl">Наш телефон:</span><a class="s-final__tel" href="tel:+79898252222">+7 (989) 825-22-22</a></p>
+        <span class="s-final__addr">г. Краснодар, ул. Автолюбителей, 13 &nbsp;·&nbsp; Пн–Сб 10:00–18:00</span>
       </div>
     </div>
   </section>
@@ -301,27 +319,16 @@
 <nav class="s-dock" aria-label="Быстрая связь"><a class="s-btn" href="#widget">Рассчитать мебель</a><a class="s-btn s-btn--ghost" href="tel:+79898252222">Позвонить</a></nav>
 <dialog class="s-dialog" id="cb-dialog">
   <button class="s-dialog__x" aria-label="Закрыть" onclick="this.closest('dialog').close()">✕</button>
-  <h2>Заказать звонок</h2>
+  <h2>Заявка на обратный звонок</h2>
   <p class="s-dialog__sub">Перезвоним в течение 15&nbsp;минут</p>
   <div class="s-dialog__form">
     <label class="s-dialog__field"><span>Ваше имя</span><input type="text" id="cb-name" placeholder="Иван" autocomplete="name"></label>
     <label class="s-dialog__field"><span>Телефон</span><input type="tel" id="cb-phone" placeholder="+7 (999) 000-00-00" autocomplete="tel"></label>
-    <a class="s-btn s-btn--wide" id="cb-send" href="#">Жду звонка</a>
+    <label class="s-dialog__field"><span>Коротко о задаче <em>– необязательно</em></span><textarea id="cb-note" placeholder="Рассчитать кухню" rows="2"></textarea></label>
+    <a class="s-btn s-btn--wide" id="cb-send" href="#">Позвоните мне</a>
   </div>
 </dialog>
 <script src="style.js" defer></script>
-<script>
-(function(){
-  var el=document.getElementById('s-cmap-qr');
-  if(!el)return;
-  var s=document.createElement('script');
-  s.src='https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
-  s.onload=function(){
-    try{new QRCode(el,{text:el.dataset.url,width:180,height:180,colorDark:'#efe9dc',colorLight:'#2F3020'});}catch(e){}
-  };
-  document.head.appendChild(s);
-})();
-</script>
 <style>
 .s-pal-pick{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;gap:6px;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);border-radius:40px;padding:6px 10px;box-shadow:0 4px 20px rgba(0,0,0,.4);}
 .s-pal-pick__lbl{color:rgba(255,255,255,.45);font:600 .72rem/2 sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:0 4px;}
@@ -358,8 +365,11 @@ document.addEventListener("DOMContentLoaded",function(){
     var cbSend=document.getElementById("cb-send");
     if(cbSend)cbSend.addEventListener("click",function(e){
       e.preventDefault();
+      var phone=(document.getElementById("cb-phone")?.value||"").trim();
+      if(!phone){document.getElementById("cb-phone").focus();return;}
       showToast();
       cbDialog.close();
+      ["cb-name","cb-phone","cb-note"].forEach(function(id){var el=document.getElementById(id);if(el)el.value="";});
     });
   }
   document.querySelectorAll(".s-bar__cb").forEach(function(btn){
@@ -381,23 +391,14 @@ document.addEventListener("DOMContentLoaded",function(){
     t.classList.add("is-visible");
     setTimeout(function(){t.classList.remove("is-visible");},4500);
   }
-  var cfSend=document.getElementById("cf-send");
-  if(cfSend)cfSend.addEventListener("click",function(e){
-    e.preventDefault();
-    var phone=(document.getElementById("cf-phone")?.value||"").trim();
-    if(!phone){document.getElementById("cf-phone").focus();return;}
-    showToast();
-    document.getElementById("cf-form").reset();
-  });
   var calcBtn=document.getElementById("calc-to-form");
   if(calcBtn)calcBtn.addEventListener("click",function(e){
     e.preventDefault();
-    var target=document.getElementById("contacts");
-    if(target)target.scrollIntoView({behavior:"smooth",block:"start"});
-    setTimeout(function(){
-      var f=document.getElementById("cf-name");
-      if(f)f.focus();
-    },700);
+    var bubble=document.querySelector("[data-s-bubble]");
+    var note=document.getElementById("cb-note");
+    if(note&&bubble)note.value=bubble.textContent.trim();
+    if(cbDialog)cbDialog.showModal();
+    setTimeout(function(){var f=document.getElementById("cb-phone");if(f)f.focus();},100);
   });
   var form=document.querySelector(".s-widget--tabs");
   if(!form)return;
