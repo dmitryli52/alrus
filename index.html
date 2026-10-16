@@ -9,7 +9,6 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Мебель на заказ в Краснодаре – фасады выбираете вживую">
 <meta property="og:description" content="Стенд с образцами в шоуруме — видите, как цвета сочетаются между собой, до заказа. Монтажник подключает технику — сантехник не нужен отдельно.">
-<meta property="og:image" content="assets/og.jpg">
 <link rel="preload" as="image" href="assets/hero-client.webp" fetchpriority="high">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%276%27 y=%276%27 width=%2720%27 height=%2720%27 rx=%275%27 fill=%27%23d99a3e%27/%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/piazzolla-cyr.woff2" as="font" type="font/woff2" crossorigin>
@@ -83,7 +82,7 @@
 .s-cmap__info{display:grid;gap:4px;}
 .s-cmap__info p{margin:0;color:rgba(245,240,232,0.75);font-size:.95rem;line-height:1.5;}
 .s-cmap__info p b{color:#f5f0e8;font-weight:600;}
-.s-cmap__frame{border-radius:12px;overflow:hidden;aspect-ratio:4/3;}
+.s-cmap__frame{border-radius:12px;overflow:hidden;aspect-ratio:4/3;min-height:200px;background:rgba(255,255,255,0.05);}
 .s-cmap__frame iframe{width:100%;height:100%;border:0;display:block;}
 .s-final{background:#2F3020;border-radius:16px;padding:clamp(28px,5vw,52px);}
 .s-final .s-section__head h2{color:#f5f0e8;}
@@ -93,7 +92,8 @@
 .s-final .s-cform__field input::placeholder,.s-final .s-cform__field textarea::placeholder{color:rgba(245,240,232,0.3);}
 .s-final .s-cform__field input:focus,.s-final .s-cform__field textarea:focus{border-color:var(--c-accent);}
 @media(max-width:680px){.s-final-form{grid-template-columns:1fr;}.s-cform__row{grid-template-columns:1fr;}}
-/* shimmer on accent buttons */
+.s-demo-note{margin-top:20px;margin-bottom:28px;padding:14px 18px;border:1px solid color-mix(in srgb,var(--c-accent) 35%,transparent);border-radius:10px;background:color-mix(in srgb,var(--c-accent) 7%,transparent);font-size:.88rem;line-height:1.55;color:var(--c-ink-soft);}
+.s-demo-note b{color:var(--c-ink);}
 .s-btn:not(.s-btn--ghost){position:relative;overflow:hidden;}
 .s-btn:not(.s-btn--ghost)::after{content:'';position:absolute;top:-10%;left:0;width:44px;height:120%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.52),transparent);transform:skewX(-12deg) translateX(-300%);animation:s-btn-shine 2.2s ease-in-out infinite;}
 @keyframes s-btn-shine{0%{transform:skewX(-12deg) translateX(-300%);}60%{transform:skewX(-12deg) translateX(2500%);}100%{transform:skewX(-12deg) translateX(2500%);}}
@@ -121,10 +121,8 @@
 .s-ticker {
   background: var(--c-accent);
   padding: 17px 0;
-  /* rotate: left side down, right side up — matches user's red arrow */
   transform: rotate(-1.5deg);
   transform-origin: center center;
-  /* wider than viewport to fill corners after rotation */
   width: calc(100% + 120px);
   margin-left: -60px;
   position: absolute;
@@ -156,7 +154,7 @@
   <div class="s-bar__right">
     <a class="s-bar__tel" href="tel:+79898252222">+7 (989) 825-22-22</a>
     <a class="s-btn s-btn--sm s-btn--ghost s-bar__cb" href="#contacts">Заказать звонок</a>
-    <a class="s-btn s-btn--sm" href="#widget">Рассчитать стоимость</a>
+    <a class="s-btn s-btn--sm" href="#widget">Рассчитать кухню</a>
   </div>
 </header>
 <main>
@@ -167,10 +165,10 @@
       <p class="s-lead">Стенд с образцами в шоуруме — видите, как цвета сочетаются между собой, до заказа. Монтажник подключает технику — сантехник не нужен отдельно.</p>
       <figure class="s-hero__photo"><img src="assets/hero-client.webp" alt="Кухня на заказ от АлРус, Краснодар" decoding="async"></figure>
     </div>
-    <div class="s-hero__widget" id="widget"><form class="s-widget s-widget--tabs" data-s-calc data-base="50000" data-min="0" data-min-note="минимальный заказ" data-per="{&quot;facade&quot;:&quot;length&quot;}" data-message="Здравствуйте! Рассчитайте, пожалуйста, кухню: {выбор}. Ориентир {итого}. Когда можно на замер?" onsubmit="return false">
-      <h2 class="s-widget__title">Рассчитать стоимость</h2>
+    <div class="s-hero__widget" id="widget"><form class="s-widget s-widget--tabs" data-s-calc data-base="50000" data-min="0" data-min-note="минимальный заказ" data-per="{&quot;facade&quot;:&quot;length&quot;}" data-message="Здравствуйте! Хочу рассчитать кухню: {выбор}. Ориентир {итого}. Когда можно на замер?" onsubmit="return false">
+      <h2 class="s-widget__title">Рассчитать кухню</h2>
       <div class="s-tabs"><button type="button" class="s-tab is-active" data-tab="kitchen">Кухня</button><button type="button" class="s-tab" data-tab="wardrobe">Шкаф-купе</button></div>
-      <div class="s-tab-panel is-active" data-panel="kitchen" data-base="50000" data-per="{&quot;facade&quot;:&quot;length&quot;}" data-message="Здравствуйте! Рассчитайте, пожалуйста, кухню: {выбор}. Ориентир {итого}. Когда можно на замер?">
+      <div class="s-tab-panel is-active" data-panel="kitchen" data-base="50000" data-per="{&quot;facade&quot;:&quot;length&quot;}" data-message="Здравствуйте! Хочу рассчитать кухню: {выбор}. Ориентир {итого}. Когда можно на замер?">
       <fieldset><legend>Планировка</legend><div class="s-chips"><label class="s-chip"><input type="radio" name="shape" value="0" data-label="Прямая" data-price="0" checked><span>Прямая</span></label><label class="s-chip"><input type="radio" name="shape" value="1" data-label="Угловая" data-price="15000"><span>Угловая</span><small class="s-chip__p">15 000 ₽</small></label><label class="s-chip"><input type="radio" name="shape" value="2" data-label="П-образная" data-price="30000"><span>П-образная</span><small class="s-chip__p">30 000 ₽</small></label></div></fieldset>
       <div class="s-range"><label for="f-length"><span>Длина кухни</span><b><output data-s-out="length">3</output> м</b></label>
       <input id="f-length" type="range" name="length" min="1.5" max="6" step="0.5" value="3" data-price="0" data-label="Длина" data-unit="м"></div>
@@ -194,12 +192,12 @@
         <a class="s-btn s-btn--wide" id="calc-to-form" href="#contacts">Получить расчёт</a>
       </div>
       <p class="s-send__note" data-s-copied hidden>Текст скопирован – вставьте его в чат.</p>
-      <p class="s-demo">Цены для примера. В вашем сайте будут ваши.</p>
+      <div class="s-demo-note"><b>Это шаблонный прайс.</b> После оформления заказа мы заменим позиции и цены на ваши — из вашего прайс-листа или сайта.</div>
     </form></div>
     <figure class="s-hero__bg" aria-hidden="true"><img src="assets/hero-client.webp" alt="Кухня на заказ от АлРус, Краснодар" decoding="async" fetchpriority="high"></figure>
   </section>
 
-  <div class="s-ticker-wrap"><div class="s-ticker" aria-hidden="true"><div class="s-ticker__track"><span class="s-ticker__item">Бесплатный замер</span><span class="s-ticker__item">3D-проект до согласования</span><span class="s-ticker__item">Дата монтажа в договоре</span><span class="s-ticker__item">Цена фиксируется</span><span class="s-ticker__item">Мастер подключает технику</span><span class="s-ticker__item">Срок 2–2,5 месяца</span><span class="s-ticker__item">Фасады выбираете вживую</span><span class="s-ticker__item">Бесплатный замер</span><span class="s-ticker__item">3D-проект до согласования</span><span class="s-ticker__item">Дата монтажа в договоре</span><span class="s-ticker__item">Цена фиксируется</span><span class="s-ticker__item">Мастер подключает технику</span><span class="s-ticker__item">Срок 2–2,5 месяца</span><span class="s-ticker__item">Фасады выбираете вживую</span></div></div></div>
+  <div class="s-ticker-wrap"><div class="s-ticker" aria-hidden="true"><div class="s-ticker__track"><span class="s-ticker__item">Замер (бесплатно)</span><span class="s-ticker__item">3D-проект до согласования</span><span class="s-ticker__item">Корпус из ЛДСП/МДФ</span><span class="s-ticker__item">Фасады выбранного материала</span><span class="s-ticker__item">Столешница</span><span class="s-ticker__item">Фурнитура с доводчиками</span><span class="s-ticker__item">Доставка по городу</span><span class="s-ticker__item">Монтаж и подключение мойки и техники</span><span class="s-ticker__item">Вывоз упаковки</span><span class="s-ticker__item">Замер (бесплатно)</span><span class="s-ticker__item">3D-проект до согласования</span><span class="s-ticker__item">Корпус из ЛДСП/МДФ</span><span class="s-ticker__item">Фасады выбранного материала</span><span class="s-ticker__item">Столешница</span><span class="s-ticker__item">Фурнитура с доводчиками</span><span class="s-ticker__item">Доставка по городу</span><span class="s-ticker__item">Монтаж и подключение мойки и техники</span><span class="s-ticker__item">Вывоз упаковки</span></div></div></div>
 
   <section class="s-section s-reveal">
     <header class="s-section__head"><h2>Что входит в цену</h2></header>
@@ -208,35 +206,27 @@
       <div><h3>Отдельно, если нужно</h3><ul><li>Техника</li><li>Мойка</li></ul></div>
     </div>
   </section>
-
   <section class="s-section s-reveal" id="prices">
     <header class="s-section__head"><h2>Ориентировочные цены</h2><p>Точная смета – после замера. Цены зависят от материалов, размеров и состава.</p></header>
+    <div class="s-demo-note"><b>Это шаблонный прайс.</b> После оформления заказа мы заменим позиции и цены на ваши — из вашего прайс-листа или сайта.</div>
     <div class="s-board"><div class="s-board__group">
       <h3 class="s-board__title">Кухни</h3>
       <ul class="s-board__list">
-        <li class="s-board__row"><span class="s-board__name">Кухня прямая 3 м – эконом<em>плёнка ПВХ, постформинг, корпус ЛДСП</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">от 65 000 ₽</span></li>
-        <li class="s-board__row"><span class="s-board__name">Кухня прямая 3 м – стандарт<em>МДФ в эмали, столешница кварц, доводчики</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">от 120 000 ₽</span></li>
-        <li class="s-board__row"><span class="s-board__name">Кухня прямая 3 м – премиум<em>массив дерева, кварц, фурнитура Blum</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">от 180 000 ₽</span></li>
-        <li class="s-board__row"><span class="s-board__name">Угловая доп.<em>к базовой цене кухни</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">от 15 000 ₽</span></li>
+        <li class="s-board__row"><span class="s-board__name">Кухня прямая 3 м – эконом<em>плёнка ПВХ, постформинг, корпус ЛДСП</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">{{уточнить}}</span></li>
+        <li class="s-board__row"><span class="s-board__name">Кухня прямая 3 м – стандарт<em>МДФ в эмали, столешница кварц, доводчики</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">{{уточнить}}</span></li>
+        <li class="s-board__row"><span class="s-board__name">Кухня прямая 3 м – премиум<em>массив дерева, кварц, фурнитура Blum</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">{{уточнить}}</span></li>
+        <li class="s-board__row"><span class="s-board__name">Угловая доп.<em>к базовой цене кухни</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">{{уточнить}}</span></li>
       </ul>
     </div>
-    <div class="s-board__group">
+<div class="s-board__group">
       <h3 class="s-board__title">Шкафы-купе</h3>
       <ul class="s-board__list">
-        <li class="s-board__row"><span class="s-board__name">Шкаф-купе<em>за погонный метр</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">от 18 000 ₽<small> за пм</small></span></li>
-        <li class="s-board__row"><span class="s-board__name">Гардеробная<em>от 3 м², наполнение по проекту</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">от 55 000 ₽</span></li>
-      </ul>
-    </div>
-    <div class="s-board__group">
-      <h3 class="s-board__title">Детская</h3>
-      <ul class="s-board__list">
-        <li class="s-board__row"><span class="s-board__name">Детский гарнитур<em>кровать + стол + шкаф, ЛДСП</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">от 45 000 ₽</span></li>
-        <li class="s-board__row"><span class="s-board__name">Полный гарнитур<em>кровать + стол + шкаф + тумба + полки</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">от 75 000 ₽</span></li>
+        <li class="s-board__row"><span class="s-board__name">Шкаф-купе<em>за погонный метр</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">{{уточнить}}</span></li>
+        <li class="s-board__row"><span class="s-board__name">Гардеробная<em>от 3 м², наполнение по проекту</em></span><span class="s-board__dots" aria-hidden="true"></span><span class="s-board__price">{{уточнить}}</span></li>
       </ul>
     </div></div>
-    <p class="s-note">Техника и мойка – отдельно. Точная смета и 3D-проект – после бесплатного замера.</p><p class="s-demo">Цены для примера. В вашем сайте будут ваши.</p>
+    <p class="s-note">Техника и мойка – отдельно. Точная смета и 3D-проект – после бесплатного замера.</p>
   </section>
-
   <section class="s-section s-reveal">
     <header class="s-section__head"><h2>Как мы работаем</h2></header>
     <ol class="s-steps">
@@ -247,29 +237,12 @@
       <li class="s-steps__item"><span class="s-steps__n">05</span><h3>Монтаж и сдача</h3><p>Собираем и подключаем всю технику и мойку – отдельный сантехник не нужен. Пыль увозим с собой.</p></li>
     </ol>
   </section>
-
   <section class="s-photos s-reveal" aria-label="Фото"><figure><img src="assets/facade.webp" alt="Матовый фасад МДФ крупным планом" loading="lazy" decoding="async"><figcaption>Фасад МДФ в эмали</figcaption></figure><figure><img src="assets/quartz.webp" alt="Столешница из кварца" loading="lazy" decoding="async"><figcaption>Столешница из кварца</figcaption></figure><figure><img src="assets/hinge.webp" alt="Петля с доводчиком" loading="lazy" decoding="async"><figcaption>Петли с доводчиками</figcaption></figure></section>
-
   <section class="s-section s-reveal" id="portfolio">
     <header class="s-section__head"><h2>Наши работы</h2></header>
-    <div class="s-ptabs"><button type="button" class="s-ptab is-active" data-ptab="kitchens">Кухни</button><button type="button" class="s-ptab" data-ptab="wardrobes">Шкафы-купе</button><button type="button" class="s-ptab" data-ptab="children">Детские</button></div>
-    <div class="s-pgrid is-active" data-ppanel="kitchens">
-      <figure class="s-pcard"><img src="assets/photo4.webp" alt="Угловая кухня, два цвета" loading="lazy"><figcaption>Угловая кухня, два цвета<span>от 120 тыс. ₽</span></figcaption></figure>
-      <figure class="s-pcard"><img src="assets/photo1.webp" alt="Угловая кухня, матовый зелёный" loading="lazy"><figcaption>Угловая кухня, зелёный МДФ<span>от 140 тыс. ₽</span></figcaption></figure>
-      <figure class="s-pcard"><img src="assets/photo2.webp" alt="Кухня: фасады под дерево" loading="lazy"><figcaption>Кухня: фасады под дерево<span>от 150 тыс. ₽</span></figcaption></figure>
-    </div>
-    <div class="s-pgrid" data-ppanel="wardrobes">
-      <figure class="s-pcard"><img src="assets/photo3.webp" alt="Шкаф-купе в прихожую" loading="lazy"><figcaption>Шкаф-купе в прихожую<span>от 55 тыс. ₽</span></figcaption></figure>
-      <figure class="s-pcard"><img src="assets/photo6.webp" alt="Шкаф-купе, зеркальные фасады" loading="lazy"><figcaption>Шкаф-купе, зеркало<span>от 70 тыс. ₽</span></figcaption></figure>
-      <figure class="s-pcard"><div class="s-pcard__ph"></div><figcaption>Здесь будет фото вашей работы</figcaption></figure>
-    </div>
-    <div class="s-pgrid" data-ppanel="children">
-      <figure class="s-pcard"><div class="s-pcard__ph"></div><figcaption>Детская комната, ЛДСП<span>от 45 тыс. ₽</span></figcaption></figure>
-      <figure class="s-pcard"><div class="s-pcard__ph"></div><figcaption>Гарнитур кровать + стол + шкаф<span>от 65 тыс. ₽</span></figcaption></figure>
-      <figure class="s-pcard"><div class="s-pcard__ph"></div><figcaption>Детская под заказ, МДФ в эмали<span>от 80 тыс. ₽</span></figcaption></figure>
-    </div>
+    <div class="s-ptabs"><button type="button" class="s-ptab is-active" data-ptab="kitchens">Кухни</button><button type="button" class="s-ptab" data-ptab="wardrobes">Шкафы-купе</button></div>
+    <div class="s-pgrid is-active" data-ppanel="kitchens"><figure class="s-pcard"><img src="assets/photo4.webp" alt="Угловая кухня, два цвета" loading="lazy"><figcaption>Угловая кухня, два цвета<span>от 120 тыс. ₽</span></figcaption></figure><figure class="s-pcard"><img src="assets/photo1.webp" alt="Угловая кухня, зелёный МДФ" loading="lazy"><figcaption>Угловая кухня, зелёный МДФ<span>от 140 тыс. ₽</span></figcaption></figure><figure class="s-pcard"><img src="assets/photo2.webp" alt="Кухня: фасады под дерево" loading="lazy"><figcaption>Кухня: фасады под дерево<span>от 150 тыс. ₽</span></figcaption></figure></div><div class="s-pgrid" data-ppanel="wardrobes"><figure class="s-pcard"><img src="assets/photo3.webp" alt="Шкаф-купе в прихожую" loading="lazy"><figcaption>Шкаф-купе в прихожую<span>от 55 тыс. ₽</span></figcaption></figure><figure class="s-pcard"><img src="assets/photo6.webp" alt="Шкаф-купе, зеркало" loading="lazy"><figcaption>Шкаф-купе, зеркало<span>от 70 тыс. ₽</span></figcaption></figure><figure class="s-pcard"><div class="s-pcard__ph"></div><figcaption>Здесь будет фото вашей работы</figcaption></figure></div>
   </section>
-
   <section class="s-section s-reveal">
     <header class="s-section__head"><h2>Что вы получите</h2></header>
     <ul class="s-promises">
@@ -279,7 +252,6 @@
       <li><h3>Мастер подключает всю технику</h3><p>Отдельный сантехник не нужен – монтажник подключает мойку и технику сам.</p></li>
     </ul>
   </section>
-
   <section class="s-section s-reveal">
     <header class="s-section__head s-section__head--reviews"><h2>Отзывы с Яндекс.Карт</h2><p class="s-reviews__rating"><span class="s-reviews__num">5,0</span><span class="s-reviews__stars" style="--r: 5" aria-label="рейтинг 5,0 из 5"></span><span class="s-reviews__count">248 отзывов</span><a class="s-reviews__all" href="https://yandex.ru/maps/org/alrus/179998494849/" target="_blank" rel="noopener">Читать все отзывы на Яндекс.Картах</a></p></header>
     <ul class="s-reviews">
@@ -289,7 +261,6 @@
     </ul>
     <p class="s-note">Отзывы с карточки на Яндекс.Картах, без правок.</p>
   </section>
-
   <section class="s-section s-reveal">
     <header class="s-section__head"><h2>Частые вопросы</h2></header>
     <div class="s-faq"><details><summary>Когда я узнаю цену?</summary><p>Предварительный расчёт – за день по вашим размерам. Точную смету даём после замера вместе с 3D-проектом.</p></details><details><summary>Выезд замерщика платный?</summary><p>Нет, замер бесплатный. Без предоплат и обязательств.</p></details><details><summary>Нужен ли отдельный сантехник?</summary><p>Нет. Наш монтажник подключает мойку и встроенную технику – вы не ищете мастеров отдельно.</p></details><details><summary>Сколько делаете кухню?</summary><p>2–2,5 месяца. Несколько клиентов получали кухни раньше срока. Дату монтажа пишем в договоре.</p></details><details><summary>Вы работаете в Краснодаре или в край?</summary><p>Основной радиус – Краснодар и пригороды. Выезд дальше – уточните при обращении.</p></details></div>
@@ -304,22 +275,22 @@
             <label class="s-cform__field"><span>Ваше имя</span><input type="text" id="cf-name" placeholder="Иван" autocomplete="name"></label>
             <label class="s-cform__field"><span>Телефон</span><input type="tel" id="cf-phone" placeholder="+7 (999) 000-00-00" autocomplete="tel"></label>
           </div>
-          <label class="s-cform__field"><span>Коротко о задаче <em>– необязательно</em></span><textarea id="cf-note" placeholder="Кухня прямая ~3 м, хочу МДФ эмаль" rows="3"></textarea></label>
+          <label class="s-cform__field"><span>Коротко о задаче <em>– необязательно</em></span><textarea id="cf-note" placeholder="Рассчитать кухню" rows="3"></textarea></label>
           <a class="s-btn s-btn--wide" id="cf-send" href="#" style="margin-top:6px">Позвоните мне</a>
         </form>
         <div class="s-cmap">
           <div class="s-cmap__info">
-            <p><b>ул. Автолюбителей, 13</b>, Краснодар</p>
+            <p><b>ул. Автолюбителей, 13</b>, Краснодаре</p>
             <p>Пн–Сб 10:00–18:00</p>
           </div>
-          <div class="s-cmap__frame"><iframe src="https://yandex.ru/map-widget/v1/?text=Краснодар%2C+ул.+Автолюбителей%2C+13&z=16" title="АлРус на карте Краснодара" loading="lazy" allowfullscreen></iframe></div>
+          <div class="s-cmap__frame"><iframe src="https://yandex.ru/map-widget/v1/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C+%D1%83%D0%BB.+%D0%90%D0%B2%D1%82%D0%BE%D0%BB%D1%8E%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%2C+13&amp;z=16" title="АлРус на карте Краснодаре" allowfullscreen></iframe></div>
         </div>
       </div>
     </div>
   </section>
 </main>
-<footer class="s-foot"><p>АлРус · Краснодар</p><p>Кухни, шкафы-купе и детские – по вашим размерам</p></footer>
-<nav class="s-dock" aria-label="Быстрая связь"><a class="s-btn" href="#widget">Рассчитать стоимость</a><a class="s-btn s-btn--ghost" href="tel:+79898252222">Позвонить</a></nav>
+<footer class="s-foot"><p>АлРус · Краснодаре</p><p>Кухни, шкафы и гардеробные по вашим размерам</p></footer>
+<nav class="s-dock" aria-label="Быстрая связь"><a class="s-btn" href="#widget">Рассчитать кухню</a><a class="s-btn s-btn--ghost" href="tel:+79898252222">Позвонить</a></nav>
 <dialog class="s-dialog" id="cb-dialog">
   <button class="s-dialog__x" aria-label="Закрыть" onclick="this.closest('dialog').close()">✕</button>
   <h2>Заказать звонок</h2>
@@ -371,14 +342,12 @@ document.addEventListener("DOMContentLoaded",function(){
       cbDialog.close();
     });
   }
-  // Заказать звонок — открываем диалог
   document.querySelectorAll(".s-bar__cb").forEach(function(btn){
     btn.addEventListener("click",function(e){
       e.preventDefault();
       if(cbDialog)cbDialog.showModal();
     });
   });
-  // переключение вкладок портфолио
   document.querySelectorAll(".s-ptab").forEach(function(btn){
     btn.addEventListener("click",function(){
       var id=btn.dataset.ptab;
@@ -386,14 +355,12 @@ document.addEventListener("DOMContentLoaded",function(){
       btn.closest("section").querySelectorAll("[data-ppanel]").forEach(function(p){p.classList.toggle("is-active",p.dataset.ppanel===id);});
     });
   });
-  // showToast — демонстрационный режим
   function showToast(){
     var t=document.getElementById("s-toast");
     if(!t)return;
     t.classList.add("is-visible");
     setTimeout(function(){t.classList.remove("is-visible");},4500);
   }
-  // форма обратного звонка в блоке контактов
   var cfSend=document.getElementById("cf-send");
   if(cfSend)cfSend.addEventListener("click",function(e){
     e.preventDefault();
@@ -402,7 +369,6 @@ document.addEventListener("DOMContentLoaded",function(){
     showToast();
     document.getElementById("cf-form").reset();
   });
-  // кнопка калькулятора → скролл к форме
   var calcBtn=document.getElementById("calc-to-form");
   if(calcBtn)calcBtn.addEventListener("click",function(e){
     e.preventDefault();
@@ -413,7 +379,6 @@ document.addEventListener("DOMContentLoaded",function(){
       if(f)f.focus();
     },700);
   });
-  // калькулятор с табами
   var form=document.querySelector(".s-widget--tabs");
   if(!form)return;
   var panels=form.querySelectorAll("[data-panel]");
