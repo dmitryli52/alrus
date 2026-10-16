@@ -82,8 +82,7 @@
 .s-cmap__info{display:grid;gap:4px;}
 .s-cmap__info p{margin:0;color:rgba(245,240,232,0.75);font-size:.95rem;line-height:1.5;}
 .s-cmap__info p b{color:#f5f0e8;font-weight:600;}
-.s-cmap__frame{border-radius:12px;overflow:hidden;aspect-ratio:4/3;min-height:200px;background:rgba(255,255,255,0.05);}
-.s-cmap__frame iframe{width:100%;height:100%;border:0;display:block;}
+.s-btn--ghost.s-cmap__btn{width:100%;justify-content:center;margin-top:4px;border:2px solid rgba(255,255,255,0.5);background:rgba(255,255,255,0.08);}
 .s-final{background:#2F3020;border-radius:16px;padding:clamp(28px,5vw,52px);}
 .s-final .s-section__head h2{color:#f5f0e8;}
 .s-final__note{color:rgba(245,240,232,0.65);margin-top:6px;font-size:.95rem;}
@@ -153,8 +152,8 @@
   <a class="s-bar__brand" href="#top"><i aria-hidden="true"></i>АлРус</a>
   <div class="s-bar__right">
     <a class="s-bar__tel" href="tel:+79898252222">+7 (989) 825-22-22</a>
-    <a class="s-btn s-btn--sm s-btn--ghost s-bar__cb" href="#contacts">Заказать звонок</a>
-    <a class="s-btn s-btn--sm" href="#widget">Рассчитать кухню</a>
+    <a class="s-btn s-btn--sm s-btn--ghost" href="#contacts">Заказать звонок</a>
+    <a class="s-btn s-btn--sm" href="#widget">Рассчитать мебель</a>
   </div>
 </header>
 <main>
@@ -166,7 +165,7 @@
       <figure class="s-hero__photo"><img src="assets/hero-client.webp" alt="Кухня на заказ от АлРус, Краснодар" decoding="async"></figure>
     </div>
     <div class="s-hero__widget" id="widget"><form class="s-widget s-widget--tabs" data-s-calc data-base="50000" data-min="0" data-min-note="минимальный заказ" data-per="{&quot;facade&quot;:&quot;length&quot;}" data-message="Здравствуйте! Хочу рассчитать кухню: {выбор}. Ориентир {итого}. Когда можно на замер?" onsubmit="return false">
-      <h2 class="s-widget__title">Рассчитать кухню</h2>
+      <h2 class="s-widget__title">Рассчитать мебель</h2>
       <div class="s-tabs"><button type="button" class="s-tab is-active" data-tab="kitchen">Кухня</button><button type="button" class="s-tab" data-tab="wardrobe">Шкаф-купе</button></div>
       <div class="s-tab-panel is-active" data-panel="kitchen" data-base="50000" data-per="{&quot;facade&quot;:&quot;length&quot;}" data-message="Здравствуйте! Хочу рассчитать кухню: {выбор}. Ориентир {итого}. Когда можно на замер?">
       <fieldset><legend>Планировка</legend><div class="s-chips"><label class="s-chip"><input type="radio" name="shape" value="0" data-label="Прямая" data-price="0" checked><span>Прямая</span></label><label class="s-chip"><input type="radio" name="shape" value="1" data-label="Угловая" data-price="15000"><span>Угловая</span><small class="s-chip__p">15 000 ₽</small></label><label class="s-chip"><input type="radio" name="shape" value="2" data-label="П-образная" data-price="30000"><span>П-образная</span><small class="s-chip__p">30 000 ₽</small></label></div></fieldset>
@@ -280,17 +279,17 @@
         </form>
         <div class="s-cmap">
           <div class="s-cmap__info">
-            <p><b>ул. Автолюбителей, 13</b>, Краснодаре</p>
+            <p><b>г. Краснодар, ул. Автолюбителей, 13</b></p>
             <p>Пн–Сб 10:00–18:00</p>
           </div>
-          <div class="s-cmap__frame"><iframe src="https://yandex.ru/map-widget/v1/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C+%D1%83%D0%BB.+%D0%90%D0%B2%D1%82%D0%BE%D0%BB%D1%8E%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%2C+13&amp;z=16" title="АлРус на карте Краснодаре" allowfullscreen></iframe></div>
+          <a class="s-btn s-btn--ghost s-cmap__btn" href="https://yandex.ru/maps/org/alrus/179998494849/" target="_blank" rel="noopener">Посмотреть на карте →</a>
         </div>
       </div>
     </div>
   </section>
 </main>
 <footer class="s-foot"><p>АлРус · Краснодаре</p><p>Кухни, шкафы и гардеробные по вашим размерам</p></footer>
-<nav class="s-dock" aria-label="Быстрая связь"><a class="s-btn" href="#widget">Рассчитать кухню</a><a class="s-btn s-btn--ghost" href="tel:+79898252222">Позвонить</a></nav>
+<nav class="s-dock" aria-label="Быстрая связь"><a class="s-btn" href="#widget">Рассчитать мебель</a><a class="s-btn s-btn--ghost" href="tel:+79898252222">Позвонить</a></nav>
 <dialog class="s-dialog" id="cb-dialog">
   <button class="s-dialog__x" aria-label="Закрыть" onclick="this.closest('dialog').close()">✕</button>
   <h2>Заказать звонок</h2>
