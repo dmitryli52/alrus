@@ -53,6 +53,10 @@
 .s-dialog__field textarea{min-height:68px;padding:10px 14px;resize:none;}
 .s-dialog__field input:focus,.s-dialog__field textarea:focus{border-color:var(--c-accent);}
 .s-bar__cb{border-color:color-mix(in srgb,var(--c-ink) 45%,transparent);}
+.s-bar .s-btn--ghost{border-color:var(--c-accent);}
+.s-dock .s-btn--ghost{border-color:var(--c-accent);}
+fieldset:has([name="worktop"]) .s-chips{display:grid;grid-template-columns:repeat(3,1fr);}
+fieldset:has([name="worktop"]) .s-chip{text-align:center;justify-content:center;}
 .s-check+.s-check{margin-top:-12px;}
 @media(max-width:480px){.s-bar__cb{display:none;}}
 .s-anchors{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
@@ -315,7 +319,7 @@
     </div>
   </section>
 </main>
-<footer class="s-foot"><p>АлРус · Краснодаре</p><p>Кухни, шкафы и гардеробные по вашим размерам</p></footer>
+<footer class="s-foot"><p>АлРус · Краснодар</p><p>Кухни, шкафы и гардеробные по вашим размерам</p></footer>
 <nav class="s-dock" aria-label="Быстрая связь"><a class="s-btn" href="#widget">Рассчитать мебель</a><a class="s-btn s-btn--ghost" href="tel:+79898252222">Позвонить</a></nav>
 <dialog class="s-dialog" id="cb-dialog">
   <button class="s-dialog__x" aria-label="Закрыть" onclick="this.closest('dialog').close()">✕</button>
